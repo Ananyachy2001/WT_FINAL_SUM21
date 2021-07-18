@@ -1,6 +1,10 @@
-   <?php
+<?php
 
-require_once 'controllers/StudentController.php'
+require_once 'controllers/StudentController.php';
+
+require_once 'controllers/DeptController.php';
+
+$departments = getAlldepartment();
 
 
 ?>
@@ -16,10 +20,6 @@ require_once 'controllers/StudentController.php'
 <span> <?php echo $err_name; ?> </span>
 </div>
 
-<h4>ID</h4>
-<input type="text" name="id" value="<?php echo $id; ?>">
-<span> <?php echo $err_id; ?> </span>
-</div>
 
 <h4>DOB</h4>
 <input type="text" name="dob" value="<?php echo $dob; ?>">
@@ -36,10 +36,16 @@ require_once 'controllers/StudentController.php'
 
 <div class="form-group">
 			<h4 class="text">Department ID:</h4> 
-			<select name="dept_id" >
-				<option selected disabled>Choose</option>
+			<select name="dept_id" value="<?php echo $dept_id; ?>" >
+				<option selected disabled>Choose here</option>
+                <?php 
+                    foreach($departments as $d){
+                        echo "<option value='".$d["id"]."'>".$d["name"]."</option>";
+                    }
+                ?>
 
 			</select>
+            <span> <?php echo $err_dept_id; ?> </span>
 		</div>
 
 

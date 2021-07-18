@@ -10,6 +10,9 @@
 	$err_cgpa="";
 	$dept_id="";
 	$err_dept_id="";
+
+    $id="";
+    $err_id="";
 	
 	$hasError=false;
 	$err_db="";
@@ -66,7 +69,7 @@
 		
 		$rs = insertStudent($name,$dob,$credit,$cgpa,$dept_id);
 		if ($rs === true){
-			header("Location: allstudents.php");
+			header("Location: Allstudents.php");
 		}
 		$err_db = $rs;
 	}
@@ -122,7 +125,7 @@
 			
 		$rs = editStudent($name,$dob,$credit,$cgpa,$dept_id,$_POST["id"]);
 		if($rs === true){
-			header("Location: allstudents.php");
+			header("Location: Allstudents.php");
 		}
 		$err_db = $rs;
 		}
@@ -136,8 +139,8 @@
 		$query = "insert into student values (NULL,'$name','$dob',$credit,'$cgpa',$dept_id)";
 		return execute($query);
 	}
-	function getStudents(){
-		$query ="select s.*,d.name as 'd_name' from student s left join departments d on s.dept_id = d.id";
+	function getAllStudents(){
+        $query ="select s.*,d.name as 'd_name' from student s left join department d on s.dept_id = d.id";
 		$rs = get($query);
 		return $rs;
 	}
