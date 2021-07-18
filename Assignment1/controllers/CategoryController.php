@@ -36,6 +36,31 @@ if(isset($_POST["add_category"])){
 
 
 
+} 
+elseif(isset($_POST["edit_category"])){
+    
+
+
+    if(empty($_POST["name"])){
+        $hasError = true;
+        $err_name ="Name  Required";
+    }
+    else{
+        $name = htmlspecialchars($_POST["name"]);
+    }
+
+
+    if(!$hasError){
+    $rs= editCategory($name, $_POST["id"]);
+    if($rs === true){
+
+        header("Location:All_categories.php");
+    }
+    $err_db = $rs;
+    }
+
+
+
 }
 
 
@@ -64,6 +89,17 @@ function getCategory($id){
     $rs = get($query);
     return $rs[0];
 }
+
+
+function editCategory($name, $id){
+
+    $query = "update categories set name='$name' where id=$id";
+    return execute($query);
+
+
+}
+
+
 
 
 ?>
