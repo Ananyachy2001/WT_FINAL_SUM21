@@ -1,7 +1,9 @@
 <?php
+    session_start();
 		
-        require_once 'controllers/publicController.php';
-        $publicdetails = getAllPublic();
+    require_once 'controllers/publicController.php';
+
+
 ?>
 
 <html>
@@ -10,6 +12,7 @@
 
     <body>
         <h1>Details</h1>
+        <h1 align="center">Welcome <?php echo $_SESSION["loggedpublic"];?></h1>
 
         <table>
     <th>
@@ -19,19 +22,7 @@
     </th>
 
     <tr>
-        <?php
 
-        
-        foreach($publicdetails as $p){
-            echo"<tr>";
-                echo"<td>".$p["name"]."</td>";
-                echo"<td>".$p["nid"]."</td>";
-
-            echo"</tr>";
-            
-            
-        }
-        ?>
 
     </tr>
 

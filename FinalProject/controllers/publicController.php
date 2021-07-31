@@ -240,6 +240,43 @@
 
 
 	}
+	else if (isset($_POST["btn_login"])){
+		if(empty($_POST["nid"])){
+			$hasError = true;
+			$err_nid = "nid Required";
+		}
+		else{
+			$nid = $_POST["nid"];
+		}
+		if(empty($_POST["name"])){
+			$hasError = true;
+			$err_name = "name Required";
+		}
+		else{
+			$name = $_POST["name"];
+		}
+		if(empty($_POST["password"])){
+			$hasError = true;
+			$err_password = "Password Required";
+		}
+		else{
+			$password = $_POST["password"];
+		}
+
+		
+
+		if(!$hasError){
+			if(authenticateUser($nid,$name,$password)){
+
+
+
+				$_SESSION["loggedpublic"] = $name;
+				header("Location: publicDetails.php");
+			}
+			$err_db = "Nid or Name or password is invalid.";
+		}
+		
+	}
 
 
 
@@ -258,6 +295,16 @@
         return $rs;
     
     }
+
+	function authenticateUser($nid,$name,$password){
+		$query = "select * from publicreg where nid='$nid' and name='$name' and password='$password'";
+		$rs = get($query);
+		if(count($rs)>0){
+			return true;
+		}
+		return false;
+		
+	}
     
 
 	
