@@ -270,6 +270,7 @@
 
 
 
+
 				$_SESSION["loggedpublic"] = $name;
 				header("Location: publicDetails.php");
 			}
