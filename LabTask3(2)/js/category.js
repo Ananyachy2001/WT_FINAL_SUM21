@@ -7,7 +7,7 @@ function get(id){
 function searchCategory(e){
 
     if(e.value ==""){
-        get("Suggesstion").innerHTML = "";
+        get("suggesstion").innerHTML = "";
         return;
     }
 

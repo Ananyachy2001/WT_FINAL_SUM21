@@ -3,7 +3,7 @@
 require_once 'controllers/CategoryController.php';
 
 $key = $_GET["key"];
-$categories = searchCategory();
+$categories = searchCategory($key);
 
 if(count($categories)>0){
 

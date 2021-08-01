@@ -103,7 +103,7 @@ function editCategory($name, $id){
 
 
 function searchCategory($key){
-    $query = "select id,name from categories where name like '%$key%' ";
+    $query = "select id,name from categories where name like '%$key%'";
 
     $rs = get($query);
     return $rs;

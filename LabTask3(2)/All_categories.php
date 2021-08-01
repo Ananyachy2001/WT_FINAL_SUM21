@@ -10,7 +10,7 @@ $categories = getAllCategories();
 <div>
 
 <h3> All Categories</h3>
-<input type="text" placeholder="Search..." onkeyup="searchCategories(this)">
+<input type="text" placeholder="Search..." onkeyup="searchCategory(this)">
 <div id = "suggesstion"></div>
 
 <table>
