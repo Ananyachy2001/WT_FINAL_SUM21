@@ -2,7 +2,7 @@
 
 session_start();
 require_once 'controllers/publicController.php';
-
+$public = getAllPublic();
 
 
 
@@ -45,5 +45,6 @@ require_once 'controllers/publicController.php';
 
 		</fieldset>
 		</form>
+
 	</body>
 </html>

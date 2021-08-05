@@ -30,6 +30,8 @@
     $err_center="";
 
 
+
+
     
     $err_db="";
 
@@ -270,13 +272,59 @@
 
 
 
-
 				$_SESSION["loggedpublic"] = $name;
+				$_SESSION["nid"] = $nid;
+
+
 				header("Location: publicDetails.php");
 			}
 			$err_db = "Nid or Name or password is invalid.";
 		}
 		
+	}
+
+	else if (isset($_POST["btn_about"])){
+
+	
+					$_SESSION["loggedpublic"] = $name;
+					$_SESSION["nid"] = $nid;
+
+	
+					header("Location:registrationStatus.php");
+	
+
+		
+	}
+
+	else if (isset($_POST["btn_feedback"])){
+
+
+
+		if(empty($_POST["feedback"])){
+			$hasError = true;
+			$err_feedback ="feedback Required";
+
+		}
+
+		else{
+			$feedback = htmlspecialchars($_POST["feedback"]);
+		}
+
+		if(!$hasError){
+
+				$_SESSION["loggedpublic"] = $name;
+				
+
+				$rs = insertFeedBack($_POST["p_id"],$feedback);
+				if ($rs === true){
+
+					header("Location: feedbackConfirmed.php");
+				}
+				
+
+			
+		}
+
 	}
 
 
@@ -306,6 +354,29 @@
 		return false;
 		
 	}
+
+
+
+	function getPublicnid($nid){
+		$query ="select r.*,p.name as 'p_name',p.nid as 'p_nid',p.gender as 'p_gender',p.address as 'p_address',p.occupation as 'p_occupation',
+		p.center as 'p_center' from reg_status r left join publicreg p on r.p_id = p.nid WHERE p_id =$nid";
+		
+
+		$rs = get($query);
+		if(count($rs)>0){
+		return $rs[0];
+		}
+		else{
+			return false;
+		}
+		
+	}
+
+
+
+
+
+	
     
 
 	

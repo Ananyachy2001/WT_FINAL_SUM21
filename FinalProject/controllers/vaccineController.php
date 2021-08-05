@@ -1,7 +1,14 @@
 <?php
 
+require_once 'publicController.php';
+
+require_once 'models/db_config.php';
 $vaccinenum=50;
-   
+
+
+$err_db="";
+
+$hasError = false;
 
 
 if(isset($_POST["check"])){
@@ -10,7 +17,22 @@ if(isset($_POST["check"])){
     verifyAvailability();
     
 
+}else if(isset($_POST["status"])){
+
+
+    if(!$hasError){
+
+            header("Location: Showstatus.php");
+
+    }
+
+
+
+
+
+
 }
+
 
 
 function verifyAvailability(){
@@ -31,6 +53,19 @@ function verifyAvailability(){
        
     }
     
+}
+
+
+function VaccineDate($id){
+    $query = "select * from reg_status where id='$id'";
+    $rs = get($query);
+    if(count($rs) > 0){
+        return true;
+    }
+    return false;
+
+
+
 }
 
 

@@ -1,7 +1,14 @@
 <?php
 
+	session_start();
+	if(!isset($_SESSION["loggedpublic"])){
+		header("Location: login.php");
+	}
+
 require_once 'controllers/publicController.php';
 require_once 'controllers/vaccineController.php';
+
+
 
 ?>
 
@@ -12,7 +19,8 @@ require_once 'controllers/vaccineController.php';
 
     <body>
         
-    <h3><a href="#">Home</a></h3>
+    <h3><a href="publicDetails.php">Home</a></h3>
+    <h1 align="center">Welcome <?php echo $_SESSION["loggedpublic"];?></h1>
     
 <form  method='post'>
 
