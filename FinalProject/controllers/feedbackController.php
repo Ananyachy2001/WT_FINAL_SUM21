@@ -29,6 +29,7 @@
 		}
       
 	}
+	
     function insertfeedback($feedback){
 
         $query = "insert into publicfeedback values(NULL,'$feedback')";

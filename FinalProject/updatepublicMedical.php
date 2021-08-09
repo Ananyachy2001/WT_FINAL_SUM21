@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Feedback Confirmed!!</h1>
+    
+<h1>Update:</h1>
+<?php echo "Already added!"; ?>
 </body>
 </html>

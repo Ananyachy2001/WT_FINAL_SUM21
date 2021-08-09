@@ -1,6 +1,7 @@
 <?php
 
     require_once 'controllers/publicController.php';
+    require_once 'controllers/downloadController.php';
 
     session_start();
 	if(!isset($_SESSION["loggedpublic"])){
@@ -8,10 +9,12 @@
 	}
 
 
-   
+
+    $p=$_SESSION['nid'];
    
 		
     $public = getAllPublic();
+
     
 
 
@@ -55,15 +58,15 @@
     </tr>
 
     <tr>
-    <td><a href="#">=>Verify Your Vaccination Certificate</a></td>
+    <td><a href="verifyVaccineCertificate.php?id=<?php echo $_SESSION["nid"];?>">=>Verify Your Vaccination Certificate</a></td>
     </tr>
 
     <tr>
-    <td><a href="#">=>Edit Profile</a></td>
+    <td><a href="updateprofile.php">=>Edit Profile</a></td>
     </tr>
 
     <tr>
-    <td><a href="#">=>Add Medical Information</a></td>
+    <td><a href="medicalInfoAdd.php">=>Add Medical Information</a></td>
     </tr>
 
 
