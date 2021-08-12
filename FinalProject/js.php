@@ -1,12 +1,6 @@
 <?php 
-		session_start();
+		
         require_once 'controllers/publicController.php';
-        
-        $id = $_SESSION['nid'];
-		if(!isset($_SESSION["nid"])){
-			header("Location: login.php");
-		}
-        $n = getnid($id);
 ?>
 
 
@@ -16,6 +10,7 @@
 
 <html>
 	<head>
+
 	<script>
 		
 			var hasError=false;
@@ -23,7 +18,17 @@
 				return document.getElementById(id);
 			}
 
-
+			function validateGen(){
+				var gn = document.getElementsByName("gender");
+				var checked = false;
+				for(var i=0;i<gn.length;i++){
+					if(gn[i].checked){
+						checked = true;
+						break;
+					}
+				}
+				return checked;
+			}
 			function validateGender(){
 				var gn = document.querySelector('input[name="gender"]:checked');
 				if(gn ==null){
@@ -42,7 +47,6 @@
 
 
 			function validate(){
-				refresh();
 				
 				if(get("nid").value == ""){
 					hasError = true;
@@ -154,41 +158,41 @@
 		
             <tr>
 					<td>Nid</td>
-					<td>: <input id="nid" type="text" name="nid" value="<?php echo $n["nid"]; ?>"  placeholder=""> </td>
+					<td>: <input id="nid" type="text" name="nid" value="<?php echo $nid; ?>"  placeholder=""> </td>
 					<td><span id="err_nid"> <?php echo $err_nid;?> </span></td>
 					
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td>: <input id="name" type="text" name="name" value="<?php echo $n["name"]; ?>" placeholder=""> </td>
-					<td><span id="err_name"> <?php echo $err_name;?> </span></td>
+					<td>: <input id="name"  type="text" name="name" value="<?php echo $name; ?>" placeholder=""> </td>
+					<td><span id="err_name" > <?php echo $err_name;?> </span></td>
 					
 				</tr>
 
 
                 <tr>
 					<td>Email</td>
-					<td>: <input id="email" type="text" name="email" value="<?php echo $n["email"]; ?>"  placeholder="">  </td>
+					<td>: <input id="email" type="text" name="email" value="<?php echo $email; ?>"  placeholder="">  </td>
 					<td><span id="err_email"> <?php echo $err_email;?> </span></td>
                    
 					
 				</tr>
                 <tr>
 					<td>Password</td>
-					<td>: <input id="password" type="password" name="password" value="<?php echo $n["password"]; ?>" placeholder="Password">  </td>
-					<td><span id="err_password"> <?php echo $err_password;?> </span></td>
+					<td>: <input id="password" type="password" name="password" value="<?php echo $password; ?>" placeholder="Password">  </td>
+					<td><span id="err_password" > <?php echo $err_password;?> </span></td>
 					
 				</tr>
                 <tr>
 					<td>Confirm Password</td>
-					<td> <input id="conpassword" type="password" name="conpassword" value="<?php echo $n["conpassword"]; ?>" placeholder="Confirm Password">  </td>
-					<td><span id="err_conpassword"> <?php echo $err_conpassword;?> </span></td>
+					<td> <input id="conpassword" type="password" name="conpassword" value="<?php echo $conpassword; ?>" placeholder="Confirm Password">  </td>
+					<td><span id="err_conpassword" > <?php echo $err_conpassword;?> </span></td>
                     
 					
 				</tr>
                 <tr>
 					<td>Phone: </td>
-					<td> <input id="phonenumber" type="text" name="phonenumber" value="<?php echo $n["phonenumber"]; ?>" placeholder="Number">  </td>
+					<td> <input id="phonenumber" type="text" name="phonenumber" value="<?php echo $phonenumber; ?>" placeholder="Number">  </td>
 					<td><span id="err_phonenumber"> <?php echo $err_phonenumber;?> </span></td>
                    
 					
@@ -196,12 +200,12 @@
 				<tr>
 				<td>Birth Date:</td>
                 <td> 
-                    <select  id="birthday" name="birthday">
+                    <select id="birthday" name="birthday">
 						
 						<option disabled selected>Day</option>
 						<?php
 							foreach($arrDay as $a){
-								if($a == $n["birthday"]) 
+								if($a == $birthday) 
 									echo "<option selected>$a</option>";
 								else
 									echo "<option>$a</option>";
@@ -209,13 +213,12 @@
 						?>
 					</select>
 					<span id="err_birthday"> <?php echo $err_birthday; ?> </span>
-
                     <select id="birthmonth" name="birthmonth">
 						
 					<option disabled selected>Month</option>
 					<?php
 							foreach($arrMonth as $a){
-								if($a == $n["birthmonth"]) 
+								if($a == $birthmonth) 
 									echo "<option selected>$a</option>";
 								else
 									echo "<option>$a</option>";
@@ -223,7 +226,7 @@
 					?>
 					</select>
 					<span id="err_birthmonth"> <?php echo $err_birthmonth; ?> </span>
-                    <select id="birthyear" name="birthyear" value="<?php echo $n["birthmonth"]; ?>">
+                    <select id="birthyear" name="birthyear" value="<?php echo $birthyear; ?>">
 						
                         <option disabled selected>Year</option>
                         <?php
@@ -231,7 +234,7 @@
 						for($i=1945;$i<=2021;$i++){
 							
 
-							if($i == $n["birthyear"]){
+							if($i == $birthyear){
 							echo "<option selected>$i</option>";}
 							else
 								{	echo "<option>$i</option>";}
@@ -250,20 +253,20 @@
 
 				<tr>
 					<td>Gender</td>
-					<td>: <input type="radio" value="Male" <?php if($n["gender"]=="Male") echo "checked"; ?> name="gender"> Male 
-					<input name="gender" type="radio" value="Female" <?php if($n["gender"]=="Female") echo "checked"; ?> > Female 
-					<input type="radio" value="Other" <?php if($n["gender"]=="Other") echo "checked"; ?> name="gender"> Other </td>
-					<td><span id="err_gender"> <?php echo $err_gender;?> </span></td>
+					<td>: <input type="radio"  value="Male" <?php if($gender=="Male") echo "checked"; ?> name="gender"> Male 
+					<input name="gender" type="radio" value="Female" <?php if($gender=="Female") echo "checked"; ?> > Female 
+					<input type="radio" value="Other" <?php if($gender=="Other") echo "checked"; ?> name="gender"> Other </td>
+					<td><span> <?php echo $err_gender;?> </span></td>
 				</tr>
 				<tr>
 					<td>What's your Occupation?</td>
-				<td><input type="radio" value="Businessman" <?php if($n["occupation"]=="Businessman") echo "checked"; ?> name="occupation" >Businessman</td>
-				<td><input name="occupation" value="Goverment Worker" <?php if($n["occupation"]=="Goverment Worker") echo "checked"; ?> type="radio">Goverment Worker</td>
-				<td><input name="occupation" value="Banker" <?php if($n["occupation"]=="Banker") echo "checked"; ?> type="radio">Banker</td>
-				<td><input name="occupation" value="Student" <?php if($n["occupation"]=="Student") echo "checked"; ?> type="radio"> Student </td>
-				<td><input name="occupation" value="Teacher" <?php if($n["occupation"]=="Teacher") echo "checked"; ?> type="radio"> Teacher</td>
-				<td><input name="occupation" value="Others" <?php if($n["occupation"]=="Others") echo "checked"; ?> type="radio"> Others </td>
-				<td><span id="err_occupation">  <?php echo $err_occupation;?> </span></td>
+				<td><input type="radio"  value="Businessman" <?php if($occupation=="Businessman") echo "checked"; ?> name="occupation" >Businessman</td>
+				<td><input name="occupation" value="Goverment Worker" <?php if($occupation=="Goverment Worker") echo "checked"; ?> type="radio">Goverment Worker</td>
+				<td><input name="occupation" value="Banker" <?php if($occupation=="Banker") echo "checked"; ?> type="radio">Banker</td>
+				<td><input name="occupation" value="Student" <?php if($occupation=="Student") echo "checked"; ?> type="radio"> Student </td>
+				<td><input name="occupation" value="Teacher" <?php if($occupation=="Teacher") echo "checked"; ?> type="radio"> Teacher</td>
+				<td><input name="occupation" value="Others" <?php if($occupation=="Others") echo "checked"; ?> type="radio"> Others </td>
+				<td><span>  <?php echo $err_occupation;?> </span></td>
 
 				
 
@@ -274,19 +277,19 @@
             
 			<tr>
 				<td><br> What's your Address?</td>
-				<td> <input id="address" type="text" value="<?php echo $n["address"]; ?>" name="address"></td>
+				<td> <input id="address" type="text" value="<?php echo $address; ?>" name="address"></td>
 				<td><span id="err_address"> <?php echo $err_address;?> </span></td>
 
             </tr>
 			
 			<tr>
 			<td>Which center do you want to give Vaccine? </td>
-			 <td><select id="center" name="center" value="<?php echo $n["center"]; ?>">
+			 <td><select id="center" name="center">
 						
 						<option disabled selected>Hospital Center</option>
 						<?php
 							foreach($arrCenter as $a){
-								if($a == $n["center"]) 
+								if($a == $arrCenter) 
 									echo "<option selected>$a</option>";
 								else
 									echo "<option>$a</option>";
@@ -304,7 +307,7 @@
 
 
 				<tr>
-                    <td align="left"><input type="submit" name="update" value="Update"></td>
+                    <td align="left"><input type="submit" name="submit" value="Register"></td>
 
                 </tr>
 

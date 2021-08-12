@@ -268,6 +268,8 @@
 		
 
 		if(!$hasError){
+
+			setcookie("nid",$nid,time()+3600);
 			if(authenticateUser($nid,$name,$password)){
 
 
@@ -571,6 +573,15 @@
 		else{
 			return false;
 		}
+	}
+
+	function checknid($nid){
+		$query = "select nid from publicreg where nid='$nid'";
+		$rs = get($query);
+		if(count($rs) > 0){
+			return true;
+		}
+		return false;
 	}
 
 

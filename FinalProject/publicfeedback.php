@@ -5,7 +5,34 @@
 
 <html>
 	<head>
+	<script>
+		
+		var hasError=false;
+		function get(id){
+			return document.getElementById(id);
+		}
 
+
+
+		function validate(){
+			refresh();
+			
+			if(get("feedback").value == ""){
+				hasError = true;
+				get("err_feedback").innerHTML = "*Feedback Req";
+			}
+
+
+			return !hasError;
+			
+		}
+
+		function refresh(){
+			hasError=false;
+			get("err_feedback").innerHTML ="";
+		}
+
+	</script>
 	</head>
 	<body>
 
@@ -14,14 +41,14 @@
 
     <h5 class="text-danger"><?php echo $err_db;?></h5>
 
-	<form action="" method="post">
+	<form action="" onsubmit="return validate()" method="post">
 		<fieldset>
 
 		<table align="center">
 				<tr>
 					<td>Feedback</td>
-					<td>: <textarea  name="feedback" <?php echo $feedback; ?>" placeholder="Feedback"></textarea> </td>
-					<td><span"> <?php echo $err_feedback;?> </span></td>
+					<td>: <input id="feedback" type="text" name="feedback" value="<?php echo $feedback; ?>"  placeholder=""> </td>
+					<td><span id="err_feedback" > <?php echo $err_feedback;?> </span></td>
 					
                 </tr>
 				<tr>

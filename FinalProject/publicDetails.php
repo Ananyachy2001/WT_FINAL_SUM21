@@ -10,7 +10,7 @@
 
 
 
-    $p=$_SESSION['nid'];
+
    
 		
     $public = getAllPublic();
@@ -22,7 +22,26 @@
 ?>
 
 <html>
-    <head></head>
+    <head>
+    <script>
+	function get(id){
+		return document.getElementById(id);
+	}
+
+	function loadDoc(){
+		//get("demo").innerHTML = "Hello";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET","downloadVaccineInformation.php",true);
+		xhr.onreadystatechange=function(){
+			if(this.readyState == 4 && this.status == 200){
+				get("demo").innerHTML = this.responseText;
+			}
+		};
+		xhr.send();
+	}
+</script>
+    </head>
+
 
 
     <body>
@@ -31,7 +50,8 @@
 
         <h1 align="center">NID: <?php echo $_SESSION["nid"];?></h1>
 
-    <form action="" method="post">
+        <button onclick="loadDoc()">=>Download Your Vaccine registration </button>
+        <div id="demo"></div> 
 
 
         <table>
@@ -43,6 +63,7 @@
     <tr>
     <td><a href="vaccineAvailability.php">=>Click Here If Vaccine is Available or Not </a></td>
     </tr>
+    
 <form action="" method='post'>
     <tr>
     <td><input type="submit"  name="btn_about" value="Registration status"></a></td>
@@ -74,12 +95,17 @@
     <td><a href="publicfeedback.php">=>Can give feedback</a></td>
     </tr>
 
-    </form>
+    <tr>
+    <td><a href="logout.php">=>Logout</a></td>
+    </tr>
 
 
 
+     
 
 </table>
+
+        
 
 
 

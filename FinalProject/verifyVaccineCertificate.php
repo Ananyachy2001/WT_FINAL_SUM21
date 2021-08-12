@@ -10,6 +10,7 @@ $p=getPublicCertificate($_SESSION["nid"]);
 
 
 
+
 ?>
 
 <html>
