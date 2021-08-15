@@ -3,6 +3,10 @@ session_start();
 
 require_once 'controllers/publicController.php';
 require_once 'controllers/resetPublicController.php';
+if(!isset($_COOKIE["nid"]) ){
+
+	$_COOKIE["nid"] = "";
+}
 
 ?>
 
@@ -33,7 +37,7 @@ require_once 'controllers/resetPublicController.php';
 				</tr>
 
 				<tr>
-                <td colspan="2" align="right"><input type="submit" name="btn_resetp1" value="Go Forward"></td>
+                <td colspan="2" align="right"><div class="btn-go"></div><input type="submit" name="btn_resetp1" value="Go Forward"></div></td>
 				<tr>
 
 			</table>

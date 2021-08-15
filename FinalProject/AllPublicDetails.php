@@ -14,6 +14,10 @@ function get(id){
 	return document.getElementById(id);
 }
 function searchPublic(e){
+	if(e.value == ""){
+		get("suggesstion").innerHTML = "";
+		return;
+	}
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET","searchPublic.php?key="+e.value,true);
 	xhr.onreadystatechange=function(){

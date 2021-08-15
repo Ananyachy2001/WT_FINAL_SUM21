@@ -2,6 +2,10 @@
 session_start();
 require_once 'controllers/downloadController.php';
 
+if(!isset($_SESSION["loggedpublic"])){
+  header("Location: login.php");
+}
+
 if(isset($_SESSION["nid"])){
 $p=getPublicCertificate($_SESSION["nid"]);
 
@@ -14,7 +18,9 @@ $p=getPublicCertificate($_SESSION["nid"]);
 ?>
 
 <html>
+  <head><link rel="stylesheet" href="CSS/download.css"></head>
   <body>
+
 
        <?php
        if($p) {
@@ -25,11 +31,15 @@ $p=getPublicCertificate($_SESSION["nid"]);
         echo "<p>Occupation:" .$p['p_occupation']. "</p><br>";
         echo "<p>address:" .$p['p_address']. "</p><br>";
         echo "<p>Center:" .$p['p_center']. "</p><br>";
+
+
+
+        echo"<p> <br> Verified </p>";
        }
        else{
         
-        echo "We can't varify your account.";
-        echo $_SESSION["nid"];
+        echo "<p>We can't varify your account. </p> <br>";
+        echo"<p>". $_SESSION["nid"]. " Nid is not verified yet.</p>";
        
        }
       ?>   

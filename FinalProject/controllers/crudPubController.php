@@ -475,7 +475,7 @@
 
 
     function searchPublic($key){ //searchname
-        $query = "select id, name from publicreg where name like '%$key%'";
+		$query ="select id,nid, name from publicreg where nid LIKE '%$key%' or name LIKE '%$key%'";
         $rs = get($query);
         return $rs;
     }

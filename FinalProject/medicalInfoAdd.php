@@ -2,14 +2,9 @@
 		session_start();
         require_once 'controllers/publicMedicalController.php';
 		
-		
-		echo $_SESSION['nid'];
 		if(!isset($_SESSION["nid"])){
 			header("Location: login.php");
 		}
-
-
-
 
 		
 ?>
@@ -166,6 +161,8 @@
 			<table>
 			<tr>
                 <td> <input id="m_id" type="hidden" name="m_id" value="<?php echo $_SESSION['nid']; ?>" >   </td>
+			</tr>
+			<tr>
 		    	<td><br> Do you have any fever or other symptoms that could be due to COVID-19? <br> 
 				<input name="symptoms" value="Yes" <?php if($symptoms=="Yes") echo "checked"; ?> type="radio"> Yes 
 				<input name="symptoms" value="No" <?php if($symptoms=="No") echo "checked"; ?> type="radio"> No </td>
@@ -224,7 +221,7 @@
 			
 
 			<tr> 
-				<td>If yes, Describe <input id="medinfo" name="medinfo" type="text"></td>
+				<td>If You have anymore information to add please Describe <input id="medinfo" name="medinfo" type="text"></td>
 				<td><span id="err_medinfo"> <?php echo $err_medinfo;?> </span></td>
 			
 			   </tr>

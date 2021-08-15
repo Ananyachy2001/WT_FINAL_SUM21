@@ -5,7 +5,7 @@
 	
 	if(count($searchPub)> 0){
 		foreach($searchPub as $s){
-			echo "<a href='AllPublicDetails.php?id=".$s["id"]."'>".$s["name"]."</a><br>";
+			echo "<a href='editcreatePublicinfo.php?id=".$s["id"]."'>".$s["name"]."</a><br>";
 		}
 	}
     

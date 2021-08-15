@@ -28,7 +28,48 @@
 		return document.getElementById(id);
 	}
 
-	function loadDoc(){
+	function loadRegStatus(){
+		//get("demo").innerHTML = "Hello";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET","registrationStatus.php",true);
+		xhr.onreadystatechange=function(){
+			if(this.readyState == 4 && this.status == 200){
+				get("demo").innerHTML = this.responseText;
+			}
+		};
+		xhr.send();
+	}
+
+
+
+
+    function loadVerifyVaccine(){
+		//get("demo").innerHTML = "Hello";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET","verifyVaccineCertificate.php?id=<?php echo $_SESSION["nid"];?>",true);
+		xhr.onreadystatechange=function(){
+			if(this.readyState == 4 && this.status == 200){
+				get("demo").innerHTML = this.responseText;
+			}
+		};
+		xhr.send();
+	}
+
+
+    function loadUpdateProfile(){
+		//get("demo").innerHTML = "Hello";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET","updateprofile.php",true);
+		xhr.onreadystatechange=function(){
+			if(this.readyState == 4 && this.status == 200){
+				get("demo").innerHTML = this.responseText;
+			}
+		};
+		xhr.send();
+	}
+
+
+    function loadDownloadVaccinInfo(){
 		//get("demo").innerHTML = "Hello";
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET","downloadVaccineInformation.php",true);
@@ -39,71 +80,73 @@
 		};
 		xhr.send();
 	}
+
+    function loadDownloadVaccinCertificate(){
+		//get("demo").innerHTML = "Hello";
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET","downloadVaccineCertificate.php",true);
+		xhr.onreadystatechange=function(){
+			if(this.readyState == 4 && this.status == 200){
+				get("demo").innerHTML = this.responseText;
+			}
+		};
+		xhr.send();
+	}
+
+
+    
+
 </script>
+
+<link rel="stylesheet" href="CSS/publicdetails.css">
     </head>
 
 
 
     <body>
-        <h3><a href="#">Home</a></h3>
-        <h1 align="center">Welcome <?php echo $_SESSION["loggedpublic"];?></h1>
+        <h3><a  class="main-btn" href="#">Home</a> <a class="main-btn" href="logout.php">Logout</a></h3>
+        
 
-        <h1 align="center">NID: <?php echo $_SESSION["nid"];?></h1>
+        <h1 class="head1" align="center">Welcome <?php echo $_SESSION["loggedpublic"];?></h1>
 
-        <button onclick="loadDoc()">=>Download Your Vaccine registration </button>
+        <h1 class="head1" align="center">NID: <?php echo $_SESSION["nid"];?></h1>
+
+
+
+        <button class="btn-link" onclick="loadRegStatus()">=>Check Registration Status </button>
+
+
+        <button class="btn-link" onclick="loadVerifyVaccine()">=> Verify Your Vaccination Certificate </button>
+
+        <button class="btn-link" onclick="loadDownloadVaccinInfo()">=> Download Your Vaccination Information </button>
+
+        <button class="btn-link" onclick="loadDownloadVaccinCertificate()">=> Download Your Vaccination Certificate </button>
+
+
         <div id="demo"></div> 
 
 
-        <table>
-    <tr>
-        <td><a href="#">=>Click Here for Latest News on Covid-19</a></td>
 
-    </tr>
+    <ul>
 
-    <tr>
-    <td><a href="vaccineAvailability.php">=>Click Here If Vaccine is Available or Not </a></td>
-    </tr>
-    
-<form action="" method='post'>
-    <tr>
-    <td><input type="submit"  name="btn_about" value="Registration status"></a></td>
-    </tr>
+     <li><a class="btn-link" href="#">=>Click Here for Latest News on Covid-19</a> <br> <br></li>
+     <li><a  class="btn-link"href="vaccineAvailability.php">=>Click Here If Vaccine is Available or Not </a> <br> <br></li>
+     <li><a class="btn-link"href="updateprofile.php">=>Update Your Profile Information</a> <br> <br></li>
+     <li> <a class="btn-link"  href="medicalInfoAdd.php">=>Add Medical Information</a> <br> <br></li>
+     <li><a class="btn-link" href="publicfeedback.php">=>Can give feedback</a> <br> <br></li>
 
-    </form>
-
-    <tr>
-    <td><a href="downloadVaccineInformation.php">=>Download Your Vaccine registration</a></td>
-    </tr>
-    <tr>
-    <td><a href="downloadVaccineCertificate.php">=>Download Your Vaccine certificate</a></td>
-    </tr>
-
-    <tr>
-    <td><a href="verifyVaccineCertificate.php?id=<?php echo $_SESSION["nid"];?>">=>Verify Your Vaccination Certificate</a></td>
-    </tr>
-
-    <tr>
-    <td><a href="updateprofile.php">=>Edit Profile</a></td>
-    </tr>
-
-    <tr>
-    <td><a href="medicalInfoAdd.php">=>Add Medical Information</a></td>
-    </tr>
+    </ul>
 
 
-    <tr>
-    <td><a href="publicfeedback.php">=>Can give feedback</a></td>
-    </tr>
+ 
 
-    <tr>
-    <td><a href="logout.php">=>Logout</a></td>
-    </tr>
+
 
 
 
      
 
-</table>
+
 
         
 

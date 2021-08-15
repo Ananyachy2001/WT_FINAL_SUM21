@@ -1,10 +1,15 @@
 <?php 
-		
-        require_once 'controllers/feedbackcontroller.php';
+	require_once 'controllers/feedbackcontroller.php';
+		 session_start();
+			if(!isset($_SESSION["loggedpublic"])){
+				header("Location: login.php");
+			}
+        
 ?>
 
 <html>
 	<head>
+	<link rel="stylesheet" href="CSS/feedback.css">
 	<script>
 		
 		var hasError=false;
@@ -60,7 +65,7 @@
                
         </table>
 		<tr>
-        <td><a href="login.php">Logout</a></td>
+        <td><a class="atag" href="login.php">Logout</a></td>
 
     </tr>
 			

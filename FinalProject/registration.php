@@ -12,6 +12,7 @@
 
 <html>
 	<head>
+	<link rel="stylesheet" href="CSS/registration.css">
 
 	<script>
 		
@@ -148,12 +149,6 @@
 	</head>
 	<body>
 
-	<h1><u>Index page of People</u></h1>
-
-
-
-
-	
 
     <h5 class="text-danger"><?php echo $err_db;?></h5>
 
@@ -320,7 +315,7 @@
 
 
 				<tr>
-                    <td align="left"><input type="submit" name="submit" value="Register"></td>
+                    <td align="left"><input class="btn-link" type="submit" name="submit" value="Register"></td>
 
                 </tr>
 

@@ -131,12 +131,8 @@
 	</head>
 	<body>
 
-	<h1><u>Index page of People</u></h1>
 
-
-
-
-	
+	<a href="publicDetails.php"> Public Dashboard</a>
 
     <h5 class="text-danger"><?php echo $err_db;?></h5>
 
@@ -146,7 +142,7 @@
 
 
 
-            <h1 align="center"><u>Create Account for People</u></h1>
+            <h1 align="center"><u>Update Your Account</u></h1>
 		<table align="center">
 
 

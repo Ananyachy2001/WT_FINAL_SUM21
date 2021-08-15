@@ -7,6 +7,8 @@
     <title>Feedback Confirmation</title>
 </head>
 <body>
+<a class="home" href="publicDetails.php"> Public Dashboard</a>
+
     <h1>Feedback Confirmed!!</h1>
 </body>
 </html>

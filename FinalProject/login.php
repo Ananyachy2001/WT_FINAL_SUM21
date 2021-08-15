@@ -54,34 +54,38 @@ require_once 'controllers/publicController.php';
 		}
 
 	</script>
+	<link rel="stylesheet" href="CSS/login.css">
 	</head>
 	<title>Login</title>
 	<body>
 		<h5 class="text-danger"><?php echo $err_db;?></h5>
-		<form action="" onsubmit="return validate()"  method="post">
+		<form action="" class="box" onsubmit="return validate()"  method="post">
 		<fieldset>
 			<table>
         <tr align="center">
     		<td><h1>Login</h1></td>
       </tr>
       <tr>
-					<td>NID</td>
-					<td>: <input id="nid" type="text" name="nid" placeholder="nid">  </td>
-					<td><span id="err_nid"> <?php echo $err_nid;?> </span></td>
-				</tr>
+	  	<td>NID:</td>
+		<td> <div class="textbox"> <input  id="nid" type="text" name="nid" placeholder="nid">  </div> </td>
+		<td><span id="err_nid"> <?php echo $err_nid;?> </span></td> 
+	 </tr>
 
        <tr>
-					<td>NAME</td>
-					<td>: <input id="name" type="text" name="name" placeholder="name">  </td>
-					<td><span id="err_name"> <?php echo $err_name;?> </span></td>
+	   
+					<td>NAME:</td>
+					<td><div class="textbox">  <input id="name" type="text" name="name" placeholder="name"> </div> </td>
+					<td><span id="err_name"> <?php echo $err_name;?> </span></td> 
 				</tr>
 				<tr>
-					<td>Password</td>
-					<td>: <input id="password" type="password" name="password" placeholder="Password">  </td>
+				
+					<td>Password:</td>
+					<td> <div class="textbox">   <input id="password" type="password" name="password" placeholder="Password"> </div>  </td>
 					<td><span id="err_password"> <?php echo $err_password;?> </span></td>
+					</div>
 				</tr>
 				<tr>
-                <td colspan="2" align="right"><input type="submit" name="btn_login" value="Login"></td>
+                <td colspan="2" align="right"><div class="btn-go"><input type="submit" name="btn_login" value="Login"></div></td>
 				<tr>
 
 			</table>

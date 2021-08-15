@@ -317,7 +317,7 @@
 				$_SESSION["loggedpublic"] = $name;
 				
 
-				$rs = insertFeedBack($_POST["p_id"],$feedback);
+				$rs = insertfeedback($_POST["p_id"],$feedback);
 				if ($rs === true){
 
 					header("Location: feedbackConfirmed.php");
@@ -583,6 +583,14 @@
 		}
 		return false;
 	}
+
+
+	function insertfeedback($feedback){
+
+        $query = "insert into publicfeedback values(NULL,'$feedback')";
+        return execute($query);
+    
+    }
 
 
 
