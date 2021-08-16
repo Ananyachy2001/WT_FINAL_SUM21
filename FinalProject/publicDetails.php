@@ -2,10 +2,11 @@
 
     require_once 'controllers/publicController.php';
     require_once 'controllers/downloadController.php';
+	include "publicheader.php";
 
     session_start();
 	if(!isset($_SESSION["loggedpublic"])){
-		header("Location: login.php");
+		header("Location: loginpublic.php");
 	}
 
 
@@ -104,7 +105,7 @@
 
 
     <body>
-        <h3><a  class="main-btn" href="#">Home</a> <a class="main-btn" href="logout.php">Logout</a></h3>
+     <a class="main-btn" href="logoutpublic.php">Logout</a></h3>
         
 
         <h1 class="head1" align="center">Welcome <?php echo $_SESSION["loggedpublic"];?></h1>
@@ -129,8 +130,8 @@
 
     <ul>
 
-     <li><a class="btn-link" href="#">=>Click Here for Latest News on Covid-19</a> <br> <br></li>
-     <li><a  class="btn-link"href="vaccineAvailability.php">=>Click Here If Vaccine is Available or Not </a> <br> <br></li>
+     <li><a class="btn-link" href="lastestCovidNews.php">=>Click Here for Latest News on Covid-19</a> <br> <br></li>
+     <li><a  class="btn-link"href="vaccineAvailability.php">=>Click Here If Vaccine is Available or Not</a><br> <br></li>
      <li><a class="btn-link"href="updateprofile.php">=>Update Your Profile Information</a> <br> <br></li>
      <li> <a class="btn-link"  href="medicalInfoAdd.php">=>Add Medical Information</a> <br> <br></li>
      <li><a class="btn-link" href="publicfeedback.php">=>Can give feedback</a> <br> <br></li>

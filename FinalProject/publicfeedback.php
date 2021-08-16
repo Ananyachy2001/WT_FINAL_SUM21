@@ -1,8 +1,9 @@
 <?php 
 	require_once 'controllers/feedbackcontroller.php';
+	include "publicheader.php";
 		 session_start();
 			if(!isset($_SESSION["loggedpublic"])){
-				header("Location: login.php");
+				header("Location: loginpublic.php");
 			}
         
 ?>
@@ -40,6 +41,7 @@
 	</script>
 	</head>
 	<body>
+	<a href="publicDetails.php"> Public Dashboard</a>
 
 	<h1><u>Give Feedback as People:</u></h1>
 
@@ -65,7 +67,7 @@
                
         </table>
 		<tr>
-        <td><a class="atag" href="login.php">Logout</a></td>
+        <td><a class="atag" href="logoutpublic.php">Logout</a></td>
 
     </tr>
 			

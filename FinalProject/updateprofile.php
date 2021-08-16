@@ -1,10 +1,11 @@
 <?php 
 		session_start();
         require_once 'controllers/publicController.php';
+		include 'publicheader.php';
         
         $id = $_SESSION['nid'];
 		if(!isset($_SESSION["nid"])){
-			header("Location: login.php");
+			header("Location: loginpublic.php");
 		}
         $n = getnid($id);
 ?>
@@ -130,9 +131,11 @@
 		</script>
 	</head>
 	<body>
-
-
+	
 	<a href="publicDetails.php"> Public Dashboard</a>
+	<a class="main-btn" href="logoutpublic.php">Logout</a></h3>
+
+	
 
     <h5 class="text-danger"><?php echo $err_db;?></h5>
 

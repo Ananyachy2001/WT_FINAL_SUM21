@@ -233,7 +233,7 @@
 
             $rs = insertPublic($nid,$name,$email,$password,$conpassword,$phonenumber,$birthday,$birthmonth,$birthyear,$gender,$occupation,$address,$center);
 			if ($rs === true){
-				header("Location: login.php");
+				header("Location: loginpublic.php");
 			}
 			$err_db = $rs;
 
@@ -499,7 +499,7 @@
 
             $rs = updatePublic($nid,$name,$email,$password,$conpassword,$phonenumber,$birthday,$birthmonth,$birthyear,$gender,$occupation,$address,$center);
 			if ($rs === true){
-				header("Location: login.php");
+				header("Location: loginpublic.php");
 			}
 			$err_db = $rs;
 

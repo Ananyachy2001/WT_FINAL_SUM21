@@ -3,7 +3,7 @@
         require_once 'controllers/publicMedicalController.php';
 		
 		if(!isset($_SESSION["nid"])){
-			header("Location: login.php");
+			header("Location: loginpublic.php");
 		}
 
 		
@@ -154,6 +154,10 @@
 
 </head>
 <body>
+
+<a class="main-btn" href="logoutpublic.php">Logout</a></h3>
+
+ <h3><a href="publicDetails.php">Public Dashboard</a></h3>
 	
 <form action="" onsubmit="return validate()" method="post">
 		<fieldset>

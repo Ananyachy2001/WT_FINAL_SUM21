@@ -1,102 +1,71 @@
 <?php 
 
 session_start();
-require_once 'controllers/publicController.php';
 
-
-
+require_once 'controllers/Govcontroller.php';
 ?>
 <html>
 	<head>
-	<script>
-		
-		var hasError=false;
-		function get(id){
-			return document.getElementById(id);
-		}
+	<link rel="stylesheet" href="style/loginstyle.css">
 
-
-
-		function validate(){
-			refresh();
+		<script>
+			var hasError=false;
+			function get(id)
+			{
+				return document.getElementById(id);
+			}
+			function validate()
+			{
+				refresh();
 			
-			if(get("nid").value == ""){
-				hasError = true;
-				get("err_nid").innerHTML = "*NID Req";
+				if(get("uname").value == "")
+				{
+					hasError = true;
+					get("err_uname").innerHTML = "<p>*User Name Req</p>";
+				}
+				if(get("pass").value == "")
+				{
+					hasError = true;
+					get("err_pass").innerHTML = "<p>*Password Req</p>";
+				}
+				return !hasError;
 			}
-			else if(get("nid").value.length <=4){
-				hasError = true;
-				get("err_nid").innerHTML = "*Nid must be > 4 char";
+			function refresh()
+			{
+				hasError=false;
+				get("err_uname").innerHTML = "";
+				get("err_pass").innerHTML = "";
 			}
-			if(get("name").value == ""){
-				hasError = true;
-				get("err_name").innerHTML = "*Name Req";
-			}
-			else if(get("name").value.length < 4){
-				hasError = true;
-				get("err_name").innerHTML = "*Name must be > 4 char";
-			}
-			if(get("password").value == ""){
-				hasError = true;
-				get("err_password").innerHTML = "*Password Req";
-			}
-
-
-			return !hasError;
-			
-		}
-
-		function refresh(){
-			hasError=false;
-			get("err_nid").innerHTML ="";
-			get("err_name").innerHTML ="";
-			get("err_password").innerHTML ="";
-		}
-
-	</script>
-	<link rel="stylesheet" href="CSS/login.css">
-	</head>
-	<title>Login</title>
-	<body>
-		<h5 class="text-danger"><?php echo $err_db;?></h5>
-		<form action="" class="box" onsubmit="return validate()"  method="post">
-		<fieldset>
-			<table>
-        <tr align="center">
-    		<td><h1>Login</h1></td>
-      </tr>
-      <tr>
-	  	<td>NID:</td>
-		<td> <div class="textbox"> <input  id="nid" type="text" name="nid" placeholder="nid">  </div> </td>
-		<td><span id="err_nid"> <?php echo $err_nid;?> </span></td> 
-	 </tr>
-
-       <tr>
-	   
-					<td>NAME:</td>
-					<td><div class="textbox">  <input id="name" type="text" name="name" placeholder="name"> </div> </td>
-					<td><span id="err_name"> <?php echo $err_name;?> </span></td> 
-				</tr>
-				<tr>
+			</script>
 				
-					<td>Password:</td>
-					<td> <div class="textbox">   <input id="password" type="password" name="password" placeholder="Password"> </div>  </td>
-					<td><span id="err_password"> <?php echo $err_password;?> </span></td>
-					</div>
-				</tr>
-				<tr>
-                <td colspan="2" align="right"><div class="btn-go"><input type="submit" name="btn_login" value="Login"></div></td>
-				<tr>
+	</head>
+	<title>Login</title><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<body>
+	<h5 class="text-danger"><?php echo $err_db;?></h5>
+		<form action="" onsubmit="return validate()" method="post">
+	
+		
+		<a href="Homepage.php"  >Home</a>
+    	<h1>Login</h1>
+      
+      
+	  <p>Username:			
+	  <input id="uname" type="text" name="uname" value="<?php echo $uname;?>" placeholder="User Name">  </p>
+					<td><span id="err_uname"> <?php echo $err_uname;?> </span></td>
+				
+				<p>Password:
+					 <input id="pass" type="password" name="password" value="<?php echo $password;?>" placeholder="Password">  </p>
+					<td><span id="err_pass"> <?php echo $err_password;?> </span></td>
+			
+				<p><input type="submit" class ="btn-link" name="btn_login" value="Login"></p>	
+				
+				
+    <p><a  href="Register.php" >Not yet registered?Regiter now</a></p>
 
-			</table>
+	<p><a  href="resetpass1.php" >Forgot password? Rsest now</a></p>
 
-
-		<h5><a href="registration.php"> Are you not registered yet? </a></h5>
-		<h5><a href="resetPublicpage1.php">Reset Password</a></h5>
-
-		</fieldset>
+	
+		
 		</form>
-
-
 	</body>
 </html>

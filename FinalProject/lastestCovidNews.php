@@ -1,12 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<?php
+
+include "publicheader.php";
+
+?>
+
+
+<html>
+
+
+<head> </head>
+
 <body>
     
-</body>
-</html>
+<h5><a href="publicDetails.php">Back to Public Dashboard</a> <br> <a href="logoutpublic.php">Logout</a></h5>
+
+
+<table  border="1" align="center"  >
+                <tr>
+
+                    <th>New Infected</th>
+                    <th>Death</th>
+                    <th>Cure</th>
+
+
+                </tr>
+                <tr>
+                  <td><ul>
+                    <li>24 hours :  5268 </li>
+                    <li>Total : 888406</li>
+                  </ul> </td>
+                  <td>
+                    <ul>
+                      <li>24 hours: 104</li>
+                      <li>Total: 14276</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>24 hours: 3570</li>
+                      <li>Total: 807673</li>
+                    </ul>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+            <td>
+
+            </body>
+
+
+            </html>

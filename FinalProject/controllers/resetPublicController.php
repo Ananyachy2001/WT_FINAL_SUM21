@@ -66,7 +66,7 @@ else if (isset($_POST["btn_resetp2"])){
         if(updatePass($nid,$password,$conpassword)){
 
 
-            header("Location: login.php");
+            header("Location: loginpublic.php");
         }
         $err_db = "Nid or password is invalid.";
     }

@@ -1,3 +1,12 @@
+<?php 
+	require_once 'controllers/feedbackGovcontroller.php';
+		 session_start();
+			if(!isset($_SESSION["loggedpublic"])){
+				header("Location: loginpublic.php");
+			}
+        
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,5 +19,7 @@
 <a class="home" href="publicDetails.php"> Public Dashboard</a>
 
     <h1>Feedback Confirmed!!</h1>
+
 </body>
+
 </html>

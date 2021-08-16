@@ -7,7 +7,7 @@
 
 
 	if(!isset($_SESSION["nid"])){
-		header("Location: login.php");
+		header("Location: loginpublic.php");
 	}
 
 

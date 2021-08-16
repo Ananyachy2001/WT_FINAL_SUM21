@@ -1,6 +1,7 @@
 <?php 
 		
         require_once 'controllers/publicController.php';
+		include "publicheader.php";
 
 		
 ?>
@@ -322,6 +323,8 @@
 
                
         </table>
+
+		<h5><a href="loginpublic.php"> Do you want to login? </a></h5>
 			
 			
 			

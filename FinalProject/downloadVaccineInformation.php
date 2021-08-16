@@ -4,7 +4,7 @@ require_once 'controllers/publicController.php';
 
 
 if(!isset($_SESSION["loggedpublic"])){
-  header("Location: login.php");
+  header("Location: loginpublic.php");
 }
 if(isset($_SESSION["nid"])){
 $p=getPublicnid($_SESSION["nid"]);

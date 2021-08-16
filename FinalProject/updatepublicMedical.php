@@ -8,6 +8,8 @@
 
 </head>
 <body>
+<a href="publicDetails.php"> Public Dashboard</a>
+<a class="main-btn" href="logoutpublic.php">Logout</a></h3>
     
 <h1><a href="publicDetails.php"> Public Dashboard</a></h1>
 <?php echo "Already added!"; ?>
