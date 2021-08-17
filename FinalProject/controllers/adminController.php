@@ -9,9 +9,6 @@
  	$err_password="";
 
 
-
-
-    
     $err_db="";
 
 

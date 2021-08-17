@@ -3,7 +3,17 @@
 
 require_once 'models/db_config.php';
 
+$nid="";
+$err_nid ="";
+$email="";
+$err_email ="";
+$password="";
+$err_password ="";
+$conpassword = "";
+$err_conpassword = "";
+$err_db="";
 
+$hasError = false;
 
 if (isset($_POST["btn_resetp1"])){
     if(empty($_POST["nid"])){
@@ -63,6 +73,7 @@ else if (isset($_POST["btn_resetp2"])){
     
 
     if(!$hasError){
+        
         if(updatePass($nid,$password,$conpassword)){
 
 

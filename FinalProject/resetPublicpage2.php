@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    require_once 'controllers/publicController.php';
+   
     require_once 'controllers/resetPublicController.php';
 
 

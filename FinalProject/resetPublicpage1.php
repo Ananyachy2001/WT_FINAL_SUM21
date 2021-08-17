@@ -16,7 +16,8 @@ if(!isset($_COOKIE["nid"]) ){
     </head>
     <body>
         
-
+	<a href="Homepage.php">Home</a><br>
+	<a href="loginpublic.php">Login Page</a>
     <h5 class="text-danger"><?php echo $err_db;?></h5>
 		<form action=""  method="post">
 		<fieldset>
