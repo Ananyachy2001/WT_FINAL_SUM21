@@ -269,7 +269,7 @@
 
 		if(!$hasError){
 
-			setcookie("nid",$nid,time()+3600);
+			setcookie("nid",$nid,time()+200);
 			if(authenticateUser($nid,$name,$password)){
 
 

@@ -30,10 +30,9 @@ function searchPublic(e){
 </script>
 </head>
 <body>
-<link rel="stylesheet" href="style/createdocinfostyle.css">
 
 <tr>
-        <td><a href="#">Back to Home</a></td>
+        <td><a href="adminDetails.php">Back to Admin Dashboard</a></td>
 
     </tr>
 
@@ -42,7 +41,7 @@ function searchPublic(e){
 	
 
 <div class="center">
-	<h3 class="text">CRUD Public</h3>
+	<h3 class="text">All Public Details</h3>
 	<table class="table table-striped">
 		<thead>
 			<th>Sl#</th>

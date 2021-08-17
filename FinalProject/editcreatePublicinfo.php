@@ -127,11 +127,7 @@
 		</script>
 	</head>
 	<body>
-
-	<h1><u>Index page of People</u></h1>
-
-
-
+   <a href="adminDetails.php">Admin Dashbord</a>
 
 	
 

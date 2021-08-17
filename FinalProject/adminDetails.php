@@ -4,50 +4,22 @@
     require_once 'controllers/crudPubController.php';
 
 
-
-
-   
-		
-    $public = getAllPublic();
-
-    
-
-
-
 ?>
 
 <html>
     <head>
-    <script>
-	function get(id){
-		return document.getElementById(id);
-	}
-
-	function loadRegStatus(){
-		//get("demo").innerHTML = "Hello";
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET","registrationStatus.php",true);
-		xhr.onreadystatechange=function(){
-			if(this.readyState == 4 && this.status == 200){
-				get("demo").innerHTML = this.responseText;
-			}
-		};
-		xhr.send();
-	}
-    
-
-</script>
 
     </head>
 
-
+    <h3><a href="Homepage.php">Home</a></h3>
 
     <body>
         
 
 
 
-        <div id="demo"></div> 
+
+
 
 
 
